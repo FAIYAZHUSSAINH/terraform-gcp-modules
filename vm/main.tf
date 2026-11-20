@@ -12,4 +12,9 @@ resource "google_compute_instance" "main" {
   network_interface {
     subnetwork = var.subnet_id
   }
+
+  service_account {
+    email  = var.service_account_email
+    scopes = ["https://www.googleapis.com/auth/cloud-platform"]
+  }
 }
